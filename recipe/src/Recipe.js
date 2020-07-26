@@ -1,11 +1,15 @@
 import React,{} from 'react';
+import style from "./recipe.module.css"
 
-const Recipe=()=>{
+const Recipe=({title, calories, image, ingredients})=>{
     return(
-        <div>
-            <h1>Title</h1>
-            <p>Calories</p>
-            <img src=""/>
+        <div className={style.recipe}>
+            <h1 >{title} </h1>
+            <ol>
+                {ingredients.map(ingredient=>(<li>{ingredient.text}</li>))}
+            </ol>
+            <p>Calories: {calories.toFixed(0)}</p>
+            <img className={style.image} src={image}/>
         </div>
     );
 }
